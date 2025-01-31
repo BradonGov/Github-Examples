@@ -31,7 +31,8 @@ Github actions uses YAML to create the workflows
 ### About YAML
 YAML is a data serialisation language designed to be directly writable and readable by humans.
 #### Common syntax rules for YAML
-```
+Based on this [article](https://learnxinyminutes.com/yaml/) 
+```YAML
 # Comments in YAML look like this.
 
 key: value
@@ -100,10 +101,22 @@ json_map: { "key": "value" }
 json_seq: [ 3, 2, 1, "takeoff" ]
 ```
 
-### common YAML syntax for github actions
-```name```: The name of the workflow. [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name)  
-```run-name```: The name for workflow runs generated from the workflow. [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#run-name)  
+### Common YAML syntax for github actions
+```name```: The name of the workflow. [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) | Example: 
+```run-name```: The name for workflow runs generated from the workflow.
 ```on```: To automatically trigger a workflow, use on to define which events can cause the workflow to run.[Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#on)  
-``` name```: The name of the workflow.  
+```env```: A map of variables that are available to the steps of all jobs in the workflow.[Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#env)  
+```defaults```: Use defaults to create a map of default settings that will apply to all jobs in the workflow.[Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaults)  
+
+| Syntax | Definition | More Info | Example |
+|----------|----------|----------|----------|
+| ```name``` | The name of the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
+| ```run-name``` | The name for workflow runs generated from the workflow. | ```run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}```   |  [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#run-name)  |
+| ```on``` |To automatically trigger a workflow, use on to define which events can cause the workflow to run.  |  ```on: push```, ```on: [push, pull]```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#on)  |
+| ```env``` |A map of variables that are available to the steps of all jobs in the workflow.  |  ```env:SERVER: production```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#env) |
+| ```defaults``` | Use defaults to create a map of default settings that will apply to all jobs in the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaults) |
+| ```name``` | The name of the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
+| ```name``` | The name of the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
+
 
 
