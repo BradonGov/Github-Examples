@@ -169,4 +169,38 @@ jobs: # Mulitiple Jobs can run at the same time
 ```
 
 ## Add a workflow to you repo
-First, you want to create a folder called `.github\workflows` in the root of the repository. 
+First, you want to create a folder called `.github\workflows` in the root of the repository.  
+![image](https://github.com/user-attachments/assets/3cebdd23-bcb2-43c8-b9d6-3528e73a351e)
+
+Go to github where you repo is located, and click the actions tab  
+![image](https://github.com/user-attachments/assets/ecc7e787-2faf-4064-9e88-d4553352f218)
+
+if no workflows exist, you should see this screen where you can use pre made workflow templates or create your own.
+![image](https://github.com/user-attachments/assets/da1e1f48-8764-4d2e-a484-8ac54ea5cf8d)
+
+Click on "set up a workflow yourself"
+Copy and paste this code to try out your first workflow
+```
+name: Basic Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  greetings-job:
+    name: Greeting People
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is 
+          FIRST_NAME: Ben
+          LAST_NAME: Jerry
+        run: |
+          echo $MY_VAR $FIRST_NAME and $LAST_NAME.
+```
