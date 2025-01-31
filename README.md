@@ -108,15 +108,31 @@ json_seq: [ 3, 2, 1, "takeoff" ]
 ```env```: A map of variables that are available to the steps of all jobs in the workflow.[Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#env)  
 ```defaults```: Use defaults to create a map of default settings that will apply to all jobs in the workflow.[Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaults)  
 
-| Syntax | Definition | More Info | Example |
+| Syntax | Definition | More Info | Ex. |
 |----------|----------|----------|----------|
-| ```name``` | The name of the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
+| ```name``` | The name of the workflow.  |  `name: Update Test Server`   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
 | ```run-name``` | The name for workflow runs generated from the workflow. | ```run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}```   |  [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#run-name)  |
 | ```on``` |To automatically trigger a workflow, use on to define which events can cause the workflow to run.  |  ```on: push```, ```on: [push, pull]```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#on)  |
-| ```env``` |A map of variables that are available to the steps of all jobs in the workflow.  |  ```env:SERVER: production```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#env) |
-| ```defaults``` | Use defaults to create a map of default settings that will apply to all jobs in the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaults) |
-| ```name``` | The name of the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
-| ```name``` | The name of the workflow.  |  ```name: Update Test Server```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) |
+| ```env``` | A map of variables that are available to the steps of all jobs in the workflow.  | <pre>env:<br/> &nbsp; SERVER: production</pre> | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#env) |
+| ```defaults``` | Use defaults to create a map of default settings that will apply to all jobs in the workflow.  |     | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaults) |
+| ```defaults.run``` | You can use defaults.run to provide default shell and working-directory options for all run steps in a workflow.  |  <pre>defaults:<br/>  run:<br/>    shell: bash <br/>    working-directory: ./scripts </pre>   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaultsrun) |
+| ```jobs``` | A workflow run is made up of one or more jobs, which run in parallel by default. |    | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobs) |  
+| ```jobs.<job_id>``` | Use jobs.<job_id> to give your job a unique identifier. The key job_id is a string and its value is a map of the job's configuration data. |   <pre>jobs: <br>  job1:<br>    name: My first job<br>  deployment:<br>    name: Deploy to Development Server </pre>   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```jobs.<job_id>.runs-on``` | define the type of machine to run the job on. |   <pre>jobs: <br>  job1:<br>    name: My first job<br>    runs-on: ubuntu-latest </pre> | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) |  
+| ```working-directory``` | define the working directory for the shell for a step.   | <pre>jobs: <br>  job1:<br>    runs-on: ubuntu-latest<br>    defaults:<br>      run:<br>        shell: bash<br>        working-directory: ./scripts </pre>   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworking-directory) |  
+| ```jobs.<job_id>.steps``` | A job contains a sequence of tasks called steps.   |     | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
+| ```a``` | a  |  ```a```   | [Docs](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#) |  
 
 
 
