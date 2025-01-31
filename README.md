@@ -168,3 +168,5 @@ jobs: # Mulitiple Jobs can run at the same time
  
 ```
 
+## Add a workflow to you repo
+First, you want to create a folder called `.github\workflows` in the root of the repository. 
